@@ -1,19 +1,23 @@
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import "./App.css";
-import { Closet } from "./assets/models/Closet";
+import {
+  Environment,
+  OrbitControls,
+  PerspectiveCamera,
+} from '@react-three/drei'
+import './App.css'
+import { Closet } from './assets/models/Closet'
 
 function View() {
   return (
     <>
-      <PerspectiveCamera makeDefault position={[2.5, 0, 2.5]} />
+      <PerspectiveCamera makeDefault position={[3, 0, 3]} />
       <OrbitControls autoRotate />
-      <Closet receiveShadow />
+      <Closet receiveShadow position={[0, 0, -0.5]} />
 
-      <color attach={"background"} args={["#EEE"]} />
+      <Environment background blur={1} preset="apartment" />
       <ambientLight />
-      <directionalLight args={["#FFF", 1]} position={[3, 3, 3]} castShadow />
+      <directionalLight args={['#FFF', 1]} position={[3, 3, 3]} castShadow />
     </>
-  );
+  )
 }
 
-export default View;
+export default View
